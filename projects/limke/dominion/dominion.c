@@ -651,7 +651,10 @@ int adventurerEff(struct gameState *state){
   //vars extracted from cardEffect function
 
   int temphand[MAX_HAND];// moved above the if statement
-  int drawntreasure=0;
+
+  // int drawntreasure=0;
+  int drawntreasure=1; //ASSIGNMENT-2-BUG, one less treasure for player
+
   int currentPlayer = whoseTurn(state);
   int z = 0;// this is the counter for the temp hand
   int cardDrawn;
@@ -688,8 +691,10 @@ int smithyEff(struct gameState *state, int handPos){
   int currentPlayer = whoseTurn(state);
   int i; //for for loop
 
-    //+3 Cards
-  for (i = 0; i < 3; i++)
+  //+3 Cards
+  // for (i = 0; i < 3; i++)
+
+  for (i = 0; i < 5; i++) //ASSIGNMENT-2-BUG, two additional cards
   {
     drawCard(currentPlayer, state);
   }
@@ -703,7 +708,8 @@ int smithyEff(struct gameState *state, int handPos){
 int councilRoomEff(struct gameState *state, int handPos){
   int i; //for loop var
   int currentPlayer = whoseTurn(state);
-        //+4 Cards
+  
+  //+4 Cards
   for (i = 0; i < 4; i++)
   {
     drawCard(currentPlayer, state);
@@ -715,10 +721,10 @@ int councilRoomEff(struct gameState *state, int handPos){
   //Each other player draws a card
   for (i = 0; i < state->numPlayers; i++)
   {
-    if ( i != currentPlayer )
-    {
+    // if ( i != currentPlayer ) //ASSIGNMENT-2-BUG, additional +1 for player
+    // {
       drawCard(i, state);
-    }
+    // }
   }
   
   //put played card in played card pile
@@ -730,6 +736,11 @@ int councilRoomEff(struct gameState *state, int handPos){
 int villageEff(struct gameState *state, int handPos){
   
   int currentPlayer = whoseTurn(state);
+  currentPlayer++; //ASSIGNMENT-2-BUG
+
+  //person playing card does not get benefits of card
+  //no wraparound for currentPlayer if currPlayer >= numPlayers
+
   //+1 Card
   drawCard(currentPlayer, state);
   

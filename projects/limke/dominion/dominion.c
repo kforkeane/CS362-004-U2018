@@ -5,6 +5,9 @@
 #include <math.h>
 #include <stdlib.h>
 
+//edited the code to extract card effects into their own functions
+//added bugs that still compile
+
 int compare(const void* a, const void* b) {
   if (*(int*)a > *(int*)b)
     return 1;

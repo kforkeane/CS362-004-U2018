@@ -646,7 +646,7 @@ int getCost(int cardNumber)
   return -1;
 }
 
-int adventurer(struct gameState *state){
+int adventurerEff(struct gameState *state){
 
   //vars extracted from cardEffect function
 
@@ -708,7 +708,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   switch( card ) 
     {
     case adventurer:
-      return adventurer(state);
+      return adventurerEff(state);
 
     case council_room:
       //+4 Cards

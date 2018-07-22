@@ -1,3 +1,9 @@
+/*****
+* Author: Keane Lim
+* Date: 07/22/18
+* Description: Unit Test for smithy
+****/
+
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include <string.h>

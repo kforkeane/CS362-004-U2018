@@ -1,3 +1,9 @@
+/*****
+* Author: Keane Lim
+* Date: 07/22/18
+* Description: Unit Test for numHandCards()
+****/
+
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include <string.h>
@@ -81,7 +87,8 @@ int main(){
 	}
 
 	//test should fail
-
+	//compare with wrong number
+	
 	for (int i = 0; i <= MAX_HAND; i++){
 		state.handCount[testPlayer] = i; 
 

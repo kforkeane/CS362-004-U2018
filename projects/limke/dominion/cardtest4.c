@@ -1,3 +1,9 @@
+/*****
+* Author: Keane Lim
+* Date: 07/22/18
+* Description: Unit Test for greatHall
+****/
+
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include <string.h>
@@ -14,7 +20,7 @@ int asserttrue(int left, int right){
 	else return 0;
 } 
 
-//testing councilRoom
+//testing greatHall
 
 int main(){
 

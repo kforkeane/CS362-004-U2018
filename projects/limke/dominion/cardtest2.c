@@ -42,10 +42,10 @@ int main(){
 	memcpy(&statecopy, &state, sizeof(struct gameState));   
 
 	//make it so all cards in player's deck are coppers except last 2 (for discard)
-	for (int i = 2; i < 10; i++){
+	for (int i = 0; i < 9; i++){
 		state.deck[player][i] = copper;
 	}
-		state.deck[player][0] = state.deck[player][1] = minion; //make first 2 non-treasure
+		state.deck[player][9] = state.deck[player][8] = minion; //make first 2 non-treasure
 
 
 	printf("BEGINNING CARD TEST 2 - ADVENTURER\n");
@@ -74,7 +74,7 @@ int main(){
 
 	//repeat test with other treasures
 	for (int i = 0; i < 10; i++){
-		if (i == 0 || i == 1)
+		if (i == 9 || i == 8)
 			state.deck[player][i] = minion;
 		else state.deck[player][i] = silver;
 	}
@@ -98,7 +98,7 @@ int main(){
 
 	//repeat test with other treasures
 	for (int i = 0; i < 10; i++){
-		if (i == 0 || i == 1)
+		if (i == 9 || i == 8)
 			state.deck[player][i] = minion;
 		else state.deck[player][i] = gold;
 	}

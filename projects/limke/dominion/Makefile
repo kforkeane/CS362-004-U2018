@@ -32,6 +32,12 @@ runtests: testDrawCard
 randadv: randomtestadventurer.c dominion.o rngs.o interface.o
 	gcc -o randadv -g randomtestadventurer.c dominion.o rngs.o interface.o $(CFLAGS)
 
+randgreat: randomtestcard1.c dominion.o rngs.o interface.o
+	gcc -o randgreat -g randomtestcard1.c dominion.o rngs.o interface.o $(CFLAGS)
+
+randsmith: randomtestcard2.c dominion.o rngs.o interface.o
+	gcc -o randsmith -g randomtestcard2.c dominion.o rngs.o interface.o $(CFLAGS)
+
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 

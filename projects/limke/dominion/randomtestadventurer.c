@@ -24,8 +24,8 @@ int asserttrue(int left, int right){
 	else return 0;
 } 
 
-int coinCount(int, struct gameState*);
-int adventurerEff(struct gameState*);
+int coinCount(int, struct gameState*); //function prototype
+int adventurerEff(struct gameState*); //function prototype
 
 //testing adventurer with randomly generated inputs
 int main(){
@@ -56,9 +56,7 @@ int main(){
 
 		//saving previous state
 		int player = state.whoseTurn; //person who will be playing the card
-		int nextPlayer = player + 1;
 		int prevHandCount = numHandCards(&state); //preserve handCount
-		int prevHandNext = numHandCards(&state); // no one should have played any cards yet, should be 5.
 
 		int numCoins = coinCount(player, &state);
 
@@ -96,6 +94,9 @@ int main(){
 	return 0;
 }
 
+//coinCount():
+//snippet taken from updateCoins function,
+//helps calculate current coin value of player's hand.
 int coinCount(int player, struct gameState* state){
 
 	int val = 0;

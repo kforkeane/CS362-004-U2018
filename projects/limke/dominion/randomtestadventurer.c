@@ -1,6 +1,6 @@
 /*****
 * Author: Keane Lim
-* Date: 07/22/18
+* Date: 08/04/18
 * Description: Random Test for Adventurer
 ****/
 
@@ -14,6 +14,7 @@
 
 #define NUM_TESTS 2000
 #define DISCARD 1 //adventurer should be discarded after being played
+#define CARDS_DRAWN 2 //adventurer should draw only 2 cards
 
 //as per HW specs,
 //use own asserttrue function to avoid crashing from standard C assert
@@ -55,7 +56,10 @@ int main(){
 
 		//saving previous state
 		int player = state.whoseTurn; //person who will be playing the card
+		int nextPlayer = player + 1;
 		int prevHandCount = numHandCards(&state); //preserve handCount
+		int prevHandNext = numHandCards(&state); // no one should have played any cards yet, should be 5.
+
 		int numCoins = coinCount(player, &state);
 
 		int r = adventurerEff(&state);
@@ -64,7 +68,7 @@ int main(){
 		int postNumCoins = coinCount(player, &state); //still want same player
 
 		//handCount
-		if ( !asserttrue(prevHandCount + 2 - DISCARD, postHandCount) ){
+		if ( !asserttrue(prevHandCount + CARDS_DRAWN - DISCARD, postHandCount) ){
 			failed++;
 			printf("failed handCount test\nprev: %d, post: %d\n", prevHandCount, postHandCount);
 			passedAll = 0;
@@ -83,6 +87,8 @@ int main(){
 			passedAll = 0;
 		}
 		else passed++;
+
+
 	}
 
 	printf("passed tests: %d, failed tests: %d\n", passed, failed);

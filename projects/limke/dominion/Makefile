@@ -38,6 +38,22 @@ randgreat: randomtestcard1.c dominion.o rngs.o interface.o
 randsmith: randomtestcard2.c dominion.o rngs.o interface.o
 	gcc -o randsmith -g randomtestcard2.c dominion.o rngs.o interface.o $(CFLAGS)
 
+randomtestadventurer.out: randadv
+	./randadv &> randomtestadventurer.out
+	gcov -f -b dominion.c >> randomtestadventurer.out
+	cat dominion.c.gcov >> randomtestadventurer.out
+
+randomtestcard1.out: randgreat
+	./randgreat &> randomtestcard1.out
+	gcov -f -b dominion.c >> randomtestcard1.out
+	cat dominion.c.gcov >> randomtestcard1.out
+
+randomtestcard2.out: randsmith
+	./randsmith &> randomtestcard2.out
+	gcov -f -b dominion.c >> randomtestcard2.out
+	cat dominion.c.gcov >> randomtestcard2.out
+
+
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 

@@ -46,7 +46,7 @@ int main(){
 	for (int i = 0; i < NUM_TESTS; i++){
 
 		//greatHallEff takes input of gameState, therefore randomize this.
-
+		int bonus = 0;
 		struct gameState state; // declare new one each time
 		int numPlayers = rand() % 3 + 2; //need +2 to ensure atleast 2 players [2,4]
 		int randSeed = rand() % 28 + 36; //arbitrary number for the seed, +36 to ensure positive seed
@@ -60,7 +60,7 @@ int main(){
 		int prevActions = state.numActions; //preserve numActions
 		int prevHandCount = numHandCards(&state); //preserve handCount
 
-		int r = greatHallEff(&state, rand() % prevHandCount); //notice randomizing of handPos
+		int r = cardEffect(great_hall, 0, 0, 0, &state, 0, &bonus); 
 
 		int postHandCount = numHandCards(&state); //should be neutral, no gain
 		int postActions = state.numActions; //should be +1

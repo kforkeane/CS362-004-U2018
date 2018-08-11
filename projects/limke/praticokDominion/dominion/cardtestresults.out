@@ -1,0 +1,14 @@
+BEGINNING CARD TEST 1 - SMITHY
+----------------------
+fail hand. expected: 7 cards after smithy, actual: 8
+fail deck. expected: 7 cards after smithy, actual: 6
+BEGINNING CARD TEST 2 - ADVENTURER
+----------------------
+pass handCount
+fail deck. expected: 6 cards after adventurer, actual: 7
+pass handCount
+fail deck. expected: 6 cards after adventurer, actual: 7
+pass handCount
+fail deck. expected: 6 cards after adventurer, actual: 7
+pass handCount
+pass deckCount

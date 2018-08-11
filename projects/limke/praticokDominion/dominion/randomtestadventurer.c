@@ -25,7 +25,8 @@ int asserttrue(int left, int right){
 } 
 
 int coinCount(int, struct gameState*); //function prototype
-int adventurerEff(struct gameState*); //function prototype
+// int adventurerEff(struct gameState*); //function prototype
+void adventurerCard(int, int, struct gameState*, int, int, int*);
 
 //testing adventurer with randomly generated inputs
 int main(){
@@ -55,12 +56,17 @@ int main(){
 
 
 		//saving previous state
-		int player = state.whoseTurn; //person who will be playing the card
+
+		int player = state.whoseTurn;
+		// int player = rand() % numPlayers;
+		// state.whoseTurn = player; //person who will be playing the card
+
 		int prevHandCount = numHandCards(&state); //preserve handCount
 
 		int numCoins = coinCount(player, &state);
+		int z = 0, temphand[MAX_HAND];
 
-		int r = adventurerEff(&state);
+		adventurerCard(0, rand() % prevHandCount, &state, player, z, temphand);
 
 		int postHandCount = numHandCards(&state); //preserve handCount
 		int postNumCoins = coinCount(player, &state); //still want same player

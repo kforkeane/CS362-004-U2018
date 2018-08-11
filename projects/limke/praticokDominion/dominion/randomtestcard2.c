@@ -16,6 +16,7 @@
 #define DISCARD 1 //great hall should be discarded after being played
 #define CARDS_DRAWN 3 //great hall draws one card
 
+void smithyCard(int, struct gameState*, int); 
 
 //as per HW specs,
 //use own asserttrue function to avoid crashing from standard C assert
@@ -55,11 +56,15 @@ int main(){
 
 		//saving previous state
 		int player = state.whoseTurn; //person who will be playing the card
+		// int player = rand() % numPlayers;
 
 		int prevHandCount = numHandCards(&state); //preserve handCount
 		int prevActions = state.numActions;
+		
+		// state.whoseTurn = player; //make sure to set randomized player to the state
 
-		int r = smithyEff(&state, rand() % prevHandCount); //randomize hand position
+		// int r = smithyEff(&state, rand() % prevHandCount); //randomize hand position
+		smithyCard(rand() % prevHandCount, &state, player); //randomize hand position
 
 		int postHandCount = numHandCards(&state); //should be net two, +3 draw, -1 discard
 		int postActions = state.numActions; //should not change

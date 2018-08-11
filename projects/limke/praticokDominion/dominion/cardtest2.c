@@ -1,7 +1,7 @@
 /*****
 * Author: Keane Lim
 * Date: 07/22/18
-* Description: Unit Test for adventurer
+* Description: Unit Test for adventurer - REFACTORED FOR PRATICOK
 ****/
 
 #include "dominion.h"

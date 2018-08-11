@@ -1,7 +1,7 @@
 /*****
 * Author: Keane Lim
 * Date: 07/22/18
-* Description: Unit Test for smithy
+* Description: Unit Test for smithy - REFACTORED FOR PRATICOK
 ****/
 
 #include "dominion.h"
@@ -51,24 +51,24 @@ int main(){
 	//5 original, +3 smithy, -1 discard
 	//shouldn't pass, bug detected.
 	if ( !asserttrue(7, state.handCount[player]) )
-		printf("fail. expected: 7 cards after smithy, actual: %d\n", state.handCount[player]);
+		printf("fail hand. expected: 7 cards after smithy, actual: %d\n", state.handCount[player]);
 	// else printf("pass handCount\n");
 
 	//check to see if 3 cards were removed from his deck
 	//shouldn't pass, bug detected.
 	if ( !asserttrue(7, state.deckCount[player]) )
-		printf("fail. expected: 7 cards after smithy, actual: %d\n", state.deckCount[player]);
+		printf("fail deck. expected: 7 cards after smithy, actual: %d\n", state.deckCount[player]);
 
 	//check to see if other players had a state change (handCount)
 	//should pass
 	if ( !asserttrue(5, state.handCount[player+1]) )
-		printf("fail. expected: 5 cards after smithy, actual: %d\n", state.handCount[player+1]);
+		printf("fail other player hand. expected: 5 cards after smithy, actual: %d\n", state.handCount[player+1]);
 	// else printf("pass\n");
 
 	//check to see if other players had a state change (deckCount)
 	//should pass
 	if ( !asserttrue(10, state.deckCount[player+1]) )
-		printf("fail. expected: 10 cards after smithy, actual: %d\n", state.deckCount[player+1]);
+		printf("fail other player deck. expected: 10 cards after smithy, actual: %d\n", state.deckCount[player+1]);
 	// else printf("pass\n");
 
 	return 0;

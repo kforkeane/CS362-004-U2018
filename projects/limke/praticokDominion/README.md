@@ -1,2 +1,1 @@
-# CS362-004-U2018
-Summer term 2018 E-Campus Class
+# go to praticokDominion/dominion folder, not the projects folder

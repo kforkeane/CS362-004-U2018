@@ -5,6 +5,8 @@
 #include <math.h>
 #include <stdlib.h>
 
+//FIXING BUGS THAT KRISTA INTRODUCED
+
 int compare(const void *a, const void *b)
 {
   if (*(int *)a > *(int *)b)
@@ -772,7 +774,7 @@ void adventurerCard(int drawntreasure, int handPos, struct gameState *state, int
 void smithyCard(int handPos, struct gameState *state, int currentPlayer) {
     //+3 Cards
     // bug: allows the player to draw 4 cards and add them to their hand (instead of +3 cards)
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 3; i++) //BUG FIXED,  i < 4 -> i < 3
     {
       drawCard(currentPlayer, state);
     }
